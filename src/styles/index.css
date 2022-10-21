@@ -32,6 +32,7 @@ code {
   --primary-light: #90c2e7;
   --secondary: #a31621;
   --background-dark: #ced3dc;
+  --background-darker: #f6f8fa;
   --backgroud: #fcf7f8;
   --font-white: #fff;
   --font-black: #000;
@@ -103,18 +104,43 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: baseline;
   gap: 20px;
+  margin: 10px;
 }
 
 .Item {
   width: 80%;
   display: flex;
+  gap: 15px;
+  background-color: var(--background-darker);
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .Item img {
-  width: 60px;
-  height: 60px;
+  background-color: #fff;
+  align-self: center;
+  border-radius: 100px;
+  border: 1px solid var(--secondary);
+  width: 80px;
+  height: 80px;
+}
+
+.Item .item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Item .title-summary h3 {
+  margin-bottom: 5px;
+}
+
+.Item .author-date {
+  gap: 20px;
+  display: flex;
+  font-size: smaller;
 }
 
 /* Pagination styling */
@@ -142,4 +168,9 @@ footer a:hover {
 
 .Pagination a:active {
   font-weight: 700;
+}
+
+.Pagination a.current {
+  color: var(--font-white);
+  background-color: #4e8098;
 }
