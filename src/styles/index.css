@@ -54,7 +54,13 @@ a {
 .App {
   height: 100vh;
   display: grid;
-  grid-template-rows: 60px 40px 1fr 40px 40px;
+  grid-template-rows: 60px 40px 1fr 40px;
+}
+
+.App .app-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Header and Footer styling */
@@ -164,6 +170,7 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  margin-bottom: 20px;
 }
 
 .Pagination li {

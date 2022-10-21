@@ -1,3 +1,15 @@
+:root {
+  /* colors */
+  --primary: #4e8098;
+  --primary-light: #90c2e7;
+  --secondary: #a31621;
+  --background-dark: #ced3dc;
+  --background-darker: #f6f8fa;
+  --backgroud: #fcf7f8;
+  --font-white: #fff;
+  --font-black: #000;
+}
+
 .DetailPage {
   margin: 20px;
   display: flex;
@@ -6,7 +18,7 @@
 }
 
 .DetailView {
-  background-color: #f6f8fa;
+  background-color: var(--backgroud-darker);
   box-shadow: 1px 1px 5px rgb(199, 199, 199);
   border-radius: 10px;
   display: flex;
@@ -26,5 +38,21 @@
 .DetailView img {
   width: 200px;
   border-radius: 500px;
-  border: 3px solid #a31621;
+  border: 3px solid var(--secondary);
+}
+
+.DetailView button {
+  border: none;
+  margin: 20px;
+}
+
+.DetailView .link {
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--primary);
+}
+
+.DetailView .link:hover {
+  background-color: var(--background-dark);
 }

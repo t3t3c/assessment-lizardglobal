@@ -27,7 +27,9 @@ function DetailView({ detailedPost }) {
           <p>{detailedPost.summary}</p>
         </div>
         <button>
-          <Link to="/">Go back</Link>
+          <Link className="link" to="/">
+            Go back
+          </Link>
         </button>
       </article>
     );

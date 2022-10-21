@@ -70,17 +70,30 @@ function App() {
       <div className="App">
         <Header />
         <CategoryFilter posts={posts} handleChange={handleFilterChange} />
-        <Routes>
-          <Route path="/" element={<PostList posts={currentFilteredPosts} />} />
-          <Route path="/posts/:id" element={<DetailPage posts={posts} />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={filteredPosts.length}
-          paginate={paginate}
-          currentPage={currentPage}
-        />
+        <div className="app-content">
+          <Routes>
+            <Route
+              path="/"
+              element={<PostList posts={currentFilteredPosts} />}
+            />
+            <Route path="/posts/:id" element={<DetailPage posts={posts} />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Pagination
+                  postsPerPage={postsPerPage}
+                  totalPosts={filteredPosts.length}
+                  paginate={paginate}
+                  currentPage={currentPage}
+                />
+              }
+            />
+          </Routes>
+        </div>
+
         <Footer />
       </div>
     );
