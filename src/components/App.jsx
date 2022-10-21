@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import CategoryFilter from './CategoryFilter';
+import DetailPage from './DetailPage';
 import Footer from './Footer';
 import Header from './Header';
+import Page404 from './Page404';
 import Pagination from './Pagination';
 import PostList from './PostList';
 
@@ -67,13 +70,30 @@ function App() {
       <div className="App">
         <Header />
         <CategoryFilter posts={posts} handleChange={handleFilterChange} />
-        <PostList posts={currentFilteredPosts} />
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={filteredPosts.length}
-          paginate={paginate}
-          currentPage={currentPage}
-        />
+        <div className="app-content">
+          <Routes>
+            <Route
+              path="/"
+              element={<PostList posts={currentFilteredPosts} />}
+            />
+            <Route path="/posts/:id" element={<DetailPage posts={posts} />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Pagination
+                  postsPerPage={postsPerPage}
+                  totalPosts={filteredPosts.length}
+                  paginate={paginate}
+                  currentPage={currentPage}
+                />
+              }
+            />
+          </Routes>
+        </div>
+
         <Footer />
       </div>
     );
