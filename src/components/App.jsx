@@ -41,6 +41,8 @@ function App() {
         // this post did not have that category
         return false;
       });
+      // set current Page to 1
+      setCurrentPage(1);
       // display filtered posts
       setFilteredPosts(newFilteredPosts);
     }
