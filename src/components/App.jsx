@@ -1,53 +1,49 @@
 import { useEffect, useState } from 'react';
+import CategoryFilter from './CategoryFilter';
 import PostList from './PostList';
-
-function CategoryFilter({ posts }) {
-  const [categories, setCategories] = useState(null);
-
-  useEffect(() => {
-    // iam am using a set so every value will be unique
-    const newCategories = new Set();
-    // create a set of categories, that will be displayed in a drop-down list
-    posts.forEach((post) => {
-      post.categories.forEach((category) => {
-        newCategories.add(category.name);
-      });
-    });
-    setCategories([...newCategories]);
-    // add posts dependency in case they change
-  }, [posts]);
-
-  if (categories) {
-    return (
-      <>
-        <select name="categories" id="categories">
-          {categories.map((categoryName) => (
-            <option value={categoryName} key={categoryName}>
-              {categoryName}
-            </option>
-          ))}
-        </select>
-      </>
-    );
-  } else {
-    return <div className="loading">loading</div>;
-  }
-}
 
 function App() {
   const [posts, setPosts] = useState([]);
+  // Display All is a default chosen category
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
+  // fetch data from the server
   useEffect(() => {
     fetch('http://localhost:3000/api/posts', { mode: 'cors' })
       .then((response) => response.json())
-      .then((data) => setPosts(data.posts));
+      .then((data) => {
+        setPosts(data.posts);
+        setFilteredPosts(data.posts);
+      });
   }, []);
+
+  function handleFilterChange(e) {
+    // take the value from the dropdown
+    const value = e.target.value;
+    if (value === 'Display All') {
+      // display all posts
+      setFilteredPosts(posts);
+    } else {
+      const newFilteredPosts = posts.filter((post) => {
+        // if there is a category with the same name as chosen one,add the post
+        for (const category of post.categories) {
+          if (category.name === value) {
+            return true;
+          }
+        }
+        // this post did not have that category
+        return false;
+      });
+      // display filtered posts
+      setFilteredPosts(newFilteredPosts);
+    }
+  }
 
   if (posts) {
     return (
       <div>
-        <CategoryFilter posts={posts} />
-        <PostList posts={posts} />
+        <CategoryFilter posts={posts} handleChange={handleFilterChange} />
+        <PostList posts={filteredPosts} />
       </div>
     );
   } else {
@@ -56,8 +52,3 @@ function App() {
 }
 
 export default App;
-
-// implement a category filter:
-// first a single-select
-// 1. extract category data from posts and create a state of it
-// refactor to if posts
