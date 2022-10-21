@@ -77,8 +77,15 @@ header h1 {
   font-family: var(--statement-font);
 }
 
+header .logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
 footer {
-  flex-direction: column;
+  /* flex-direction: column; */
+  gap: 10px;
   font-size: small;
 }
 
