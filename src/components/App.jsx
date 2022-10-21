@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import CategoryFilter from './CategoryFilter';
+import DetailPage from './DetailPage';
 import Footer from './Footer';
 import Header from './Header';
 import Pagination from './Pagination';
