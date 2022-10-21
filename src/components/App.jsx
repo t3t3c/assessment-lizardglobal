@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import CategoryFilter from './CategoryFilter';
+import Pagination from './Pagination';
 import PostList from './PostList';
 
 function App() {
   const [posts, setPosts] = useState([]);
   // Display All is a default chosen category
   const [filteredPosts, setFilteredPosts] = useState([]);
+  // Pagination Setup
+  const [currentPage, setCurrentPage] = useState(1);
+  // 10 posts per page is set as default
+  const [postsPerPage] = useState(6);
 
   // fetch data from the server
   useEffect(() => {
@@ -39,14 +44,35 @@ function App() {
     }
   }
 
+  // Pagination setup:
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // slice the posts we want to show
+  const currentFilteredPosts = filteredPosts.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+
+  function paginate(pageNumber) {
+    setCurrentPage(pageNumber);
+    console.log(currentPage);
+  }
+
   if (posts) {
+    // if posts are finished fetching
     return (
       <div>
         <CategoryFilter posts={posts} handleChange={handleFilterChange} />
-        <PostList posts={filteredPosts} />
+        <PostList posts={currentFilteredPosts} />
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={filteredPosts.length}
+          paginate={paginate}
+        />
       </div>
     );
   } else {
+    // posts have not finished fetching
     return <div className="loading">Loading</div>;
   }
 }
