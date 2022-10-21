@@ -1,0 +1,20 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "../../Projects/MERN/blog-front-end"
+	},
+	{
+		"path": "../../Cheatsheets"
+	},
+	{
+		"path": "../../Projects/React/shopping-cart"
+	},
+	{
+		"path": "../../Projects/CSS and HTML only/admin_dashboard"
+	}
+],
+  "settings": {}
+}
