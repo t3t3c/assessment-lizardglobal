@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function CategoryFilter({ posts, handleChange }) {
+export default function CategoryFilter({ posts, handleChange, totalPosts }) {
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
@@ -31,6 +31,9 @@ export default function CategoryFilter({ posts, handleChange }) {
             </option>
           ))}
         </select>
+        <p>
+          There are <strong>{totalPosts}</strong> posts in this category.
+        </p>
       </div>
     );
   } else {

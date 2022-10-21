@@ -69,7 +69,11 @@ function App() {
     return (
       <div className="App">
         <Header />
-        <CategoryFilter posts={posts} handleChange={handleFilterChange} />
+        <CategoryFilter
+          posts={posts}
+          handleChange={handleFilterChange}
+          totalPosts={filteredPosts.length}
+        />
         <div className="app-content">
           <Routes>
             <Route
