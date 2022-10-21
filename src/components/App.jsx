@@ -1,6 +1,39 @@
 import { useEffect, useState } from 'react';
 import PostList from './PostList';
 
+function CategoryFilter({ posts }) {
+  const [categories, setCategories] = useState(null);
+
+  useEffect(() => {
+    // iam am using a set so every value will be unique
+    const newCategories = new Set();
+    // create a set of categories, that will be displayed in a drop-down list
+    posts.forEach((post) => {
+      post.categories.forEach((category) => {
+        newCategories.add(category.name);
+      });
+    });
+    setCategories([...newCategories]);
+    // add posts dependency in case they change
+  }, [posts]);
+
+  if (categories) {
+    return (
+      <>
+        <select name="categories" id="categories">
+          {categories.map((categoryName) => (
+            <option value={categoryName} key={categoryName}>
+              {categoryName}
+            </option>
+          ))}
+        </select>
+      </>
+    );
+  } else {
+    return <div className="loading">loading</div>;
+  }
+}
+
 function App() {
   const [posts, setPosts] = useState([]);
 
@@ -10,41 +43,21 @@ function App() {
       .then((data) => setPosts(data.posts));
   }, []);
 
-  return (
-    <div>
-      <h1>Hi there</h1>
-      <div className="posts">{posts && <PostList posts={posts} />}</div>
-    </div>
-  );
+  if (posts) {
+    return (
+      <div>
+        <CategoryFilter posts={posts} />
+        <PostList posts={posts} />
+      </div>
+    );
+  } else {
+    return <div className="loading">Loading</div>;
+  }
 }
 
 export default App;
 
-// {
-//   "id": "146b8632-ab20-479c-a67d-3cd9f50231e8",
-//   "title": "in hac habitasse platea dictumst maecenas ut massa quis augue",
-//   "publishDate": "2020-09-28T15:59:05Z",
-//   "author": {
-//     "name": "Bunnie Mathey",
-//     "avatar": "https://robohash.org/quamnonet.jpg?size=50x50&set=set1"
-//   },
-//   "summary": "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-//   "categories": [
-//     {
-//       "id": "5ee1187a-26f3-4819-b710-ccd99efc94df",
-//       "name": "Surveys and Forms"
-//     },
-//     {
-//       "id": "dc431d44-e26e-4bec-a2bd-a8ba1cd8b95d",
-//       "name": "Digital Marketing"
-//     },
-//     {
-//       "id": "0756ceeb-48d1-495a-9e47-8bdbc4a231d4",
-//       "name": "Platform News and Updates"
-//     },
-//     {
-//       "id": "b4f70697-928c-4838-8f34-3bf0fc101792",
-//       "name": "Tips and Best Practise"
-//     }
-//   ]
-// },
+// implement a category filter:
+// first a single-select
+// 1. extract category data from posts and create a state of it
+// refactor to if posts
