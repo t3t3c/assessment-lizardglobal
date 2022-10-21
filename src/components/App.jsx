@@ -60,6 +60,7 @@ function App() {
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
   }
+  console.log('test');
 
   if (posts) {
     // if posts are finished fetching
