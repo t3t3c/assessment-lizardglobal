@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,5 +10,136 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+/* fonts */
+
+/* Nova Mono and Lato */
+/* font-family: 'Lato', sans-serif; */
+/* font-family: 'Nova Mono', monospace; */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nova+Mono&display=swap');
+/* Setup */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+:root {
+  /* colors */
+  --primary: #4e8098;
+  --primary-light: #90c2e7;
+  --secondary: #a31621;
+  --background-dark: #ced3dc;
+  --backgroud: #fcf7f8;
+  --font-white: #fff;
+  --font-black: #000;
+  /* fonts */
+  --statement-font: 'Nova Mono', monospace;
+  --text-font: 'Lato', sans-serif;
+}
+
+body {
+  font-family: var(--text-font);
+}
+
+/* General setup */
+a {
+  text-decoration: none;
+}
+
+/* App styling */
+.App {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 40px 1fr 40px 40px;
+}
+
+/* Header and Footer styling */
+header,
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--font-white);
+}
+
+header h1 {
+  font-family: var(--statement-font);
+}
+
+footer {
+  flex-direction: column;
+  font-size: small;
+}
+
+footer a {
+  color: var(--font-white);
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Filter Styling */
+.CategoryFilter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 0px 0px 10px 10px;
+  background-color: var(--background-dark);
+}
+
+.CategoryFilter select {
+  border-radius: 10px;
+}
+
+/* Item (Post) styling */
+
+.PostList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Item {
+  width: 80%;
+  display: flex;
+}
+
+.Item img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Pagination styling */
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.Pagination li {
+  list-style: none;
+}
+
+.Pagination a {
+  color: var(--font-black);
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.Pagination a:hover {
+  background-color: var(--background-dark);
+}
+
+.Pagination a:active {
+  font-weight: 700;
+}

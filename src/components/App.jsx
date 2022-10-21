@@ -57,7 +57,6 @@ function App() {
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
-    console.log(currentPage);
   }
 
   if (posts) {
@@ -71,6 +70,7 @@ function App() {
           postsPerPage={postsPerPage}
           totalPosts={filteredPosts.length}
           paginate={paginate}
+          currentPage={currentPage}
         />
         <Footer />
       </div>

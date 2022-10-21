@@ -21,7 +21,9 @@ export default function CategoryFilter({ posts, handleChange }) {
   if (categories) {
     return (
       <div className="CategoryFilter">
-        <p>Add filter:</p>
+        <p>
+          <strong>Add filter: </strong>
+        </p>
         <select name="categories" id="categories" onChange={handleChange}>
           {categories.map((categoryName) => (
             <option value={categoryName} key={categoryName}>

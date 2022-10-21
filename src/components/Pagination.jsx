@@ -10,7 +10,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   // show the numbers
   return (
     <nav>
-      <ul className="pagination">
+      <ul className="Pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
             {/* onClick we change the current page */}
