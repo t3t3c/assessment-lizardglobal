@@ -73,6 +73,10 @@ footer {
   color: var(--background-darker);
 }
 
+header {
+  border-bottom: 2px solid var(--primary-light);
+}
+
 header h1 {
   font-family: var(--statement-font);
 }
@@ -87,6 +91,7 @@ footer {
   /* flex-direction: column; */
   gap: 10px;
   font-size: small;
+  border-top: 2px solid var(--primary-light);
 }
 
 footer a {
@@ -109,7 +114,12 @@ footer a:hover {
 }
 
 .CategoryFilter select {
+  border-color: var(--primary-light);
   border-radius: 10px;
+}
+
+.CategoryFilter select:focus {
+  outline-color: var(--primary-light);
 }
 
 /* Item (Post) styling */
