@@ -19,7 +19,7 @@ function App() {
 
   // fetch data from the server
   useEffect(() => {
-    fetch('http://localhost:3000/api/posts', { mode: 'cors' })
+    fetch(`${window.location.href}api/posts`, { mode: 'cors' })
       .then((response) => response.json())
       .then((data) => {
         setPosts(data.posts);
