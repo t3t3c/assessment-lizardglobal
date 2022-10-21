@@ -4,6 +4,7 @@ import CategoryFilter from './CategoryFilter';
 import DetailPage from './DetailPage';
 import Footer from './Footer';
 import Header from './Header';
+import Page404 from './Page404';
 import Pagination from './Pagination';
 import PostList from './PostList';
 
@@ -71,6 +72,8 @@ function App() {
         <CategoryFilter posts={posts} handleChange={handleFilterChange} />
         <Routes>
           <Route path="/" element={<PostList posts={currentFilteredPosts} />} />
+          <Route path="/posts/:id" element={<DetailPage posts={posts} />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
         <Pagination
           postsPerPage={postsPerPage}

@@ -1,6 +1,6 @@
 // module for formating dates
 import moment from 'moment';
-import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Item({ post }) {
   return (
@@ -24,10 +24,14 @@ function Item({ post }) {
             {/* moment formats the date in a "28th of September 2020" format*/}
             <p>{moment(post.publishDate).format('Do of MMMM YYYY')}</p>
           </div>
+          <h4>
+            <Link to={'/posts/' + post.id} className="details">
+              View details
+            </Link>
+          </h4>
         </div>
       </article>
       {/* Pagination goes here provided by the Route */}
-      <Outlet />
     </>
   );
 }
