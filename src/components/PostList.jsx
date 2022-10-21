@@ -1,9 +1,9 @@
 function Item({ post }) {
   return (
-    <div className="item">
+    <article className="item">
       <h2>{post.title}</h2>
       <p>{post.author.name}</p>
-    </div>
+    </article>
   );
 }
 

@@ -20,7 +20,8 @@ export default function CategoryFilter({ posts, handleChange }) {
 
   if (categories) {
     return (
-      <>
+      <div className="CategoryFilter">
+        <p>Add filter:</p>
         <select name="categories" id="categories" onChange={handleChange}>
           {categories.map((categoryName) => (
             <option value={categoryName} key={categoryName}>
@@ -28,7 +29,7 @@ export default function CategoryFilter({ posts, handleChange }) {
             </option>
           ))}
         </select>
-      </>
+      </div>
     );
   } else {
     return <div className="loading">loading</div>;

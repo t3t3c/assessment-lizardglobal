@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import CategoryFilter from './CategoryFilter';
+import Footer from './Footer';
+import Header from './Header';
 import Pagination from './Pagination';
 import PostList from './PostList';
 
@@ -61,7 +63,8 @@ function App() {
   if (posts) {
     // if posts are finished fetching
     return (
-      <div>
+      <div className="App">
+        <Header />
         <CategoryFilter posts={posts} handleChange={handleFilterChange} />
         <PostList posts={currentFilteredPosts} />
         <Pagination
@@ -69,6 +72,7 @@ function App() {
           totalPosts={filteredPosts.length}
           paginate={paginate}
         />
+        <Footer />
       </div>
     );
   } else {
