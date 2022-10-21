@@ -69,7 +69,9 @@ function App() {
       <div className="App">
         <Header />
         <CategoryFilter posts={posts} handleChange={handleFilterChange} />
-        <PostList posts={currentFilteredPosts} />
+        <Routes>
+          <Route path="/" element={<PostList posts={currentFilteredPosts} />} />
+        </Routes>
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={filteredPosts.length}

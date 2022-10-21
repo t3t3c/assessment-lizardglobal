@@ -23,13 +23,12 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
             {/* onClick we change the current page */}
-            <a
+            <button
               onClick={() => paginate(number)}
-              href="!#"
               className={anchorClassName(number)}
             >
               {number}
-            </a>
+            </button>
           </li>
         ))}
       </ul>

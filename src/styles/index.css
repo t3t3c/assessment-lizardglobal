@@ -91,7 +91,8 @@ footer a:hover {
   align-items: center;
   gap: 10px;
   border-radius: 0px 0px 10px 10px;
-  background-color: var(--background-dark);
+  background-color: var(--background-darker);
+  box-shadow: 0 4px 2px -2px rgb(199, 199, 199);
 }
 
 .CategoryFilter select {
@@ -161,21 +162,22 @@ footer a:hover {
   list-style: none;
 }
 
-.Pagination a {
+.Pagination button {
   color: var(--font-black);
   padding: 6px 10px;
   border-radius: 5px;
+  border: none;
 }
 
-.Pagination a:hover {
+.Pagination button:hover {
   background-color: var(--background-dark);
 }
 
-.Pagination a:active {
+.Pagination button:active {
   font-weight: 700;
 }
 
-.Pagination a.current {
+.Pagination button.current {
   color: var(--font-white);
   background-color: #4e8098;
 }
