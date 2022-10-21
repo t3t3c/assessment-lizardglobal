@@ -115,6 +115,7 @@ footer a:hover {
   gap: 15px;
   background-color: var(--background-darker);
   border-radius: 10px;
+  box-shadow: 1px 1px 5px rgb(199, 199, 199);
   padding: 5px;
 }
 
@@ -131,6 +132,10 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.Item .title-summary {
+  margin-bottom: 5px;
 }
 
 .Item .title-summary h3 {
