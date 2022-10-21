@@ -8,6 +8,10 @@ import Page404 from './Page404';
 import Pagination from './Pagination';
 import PostList from './PostList';
 
+/* THIS BRANCH IS FOR GITHUB PAGES ONLY! */
+// data is imported from file instead of fetched
+import Data from '../mock/data.json';
+
 function App() {
   const [posts, setPosts] = useState([]);
   // Display All is a default chosen category
@@ -19,12 +23,13 @@ function App() {
 
   // fetch data from the server
   useEffect(() => {
-    fetch(`${window.location.href}api/posts`, { mode: 'cors' })
-      .then((response) => response.json())
-      .then((data) => {
-        setPosts(data.posts);
-        setFilteredPosts(data.posts);
-      });
+    // fetch(`${window.location.href}api/posts`, { mode: 'cors' })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    // console.log(Data);
+    setPosts(Data.posts);
+    setFilteredPosts(Data.posts);
+    // });
   }, []);
 
   function handleFilterChange(e) {
