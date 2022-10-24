@@ -1,11 +1,29 @@
 .error {
+  margin-top: 30px;
   font-size: x-large;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 30px;
 }
 
 .error h1 {
   color: #a31621;
+}
+
+.error button {
+  border: none;
+  margin: 20px;
+}
+
+.error .link {
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--primary);
+}
+
+.error .link:hover {
+  background-color: var(--background-dark);
 }

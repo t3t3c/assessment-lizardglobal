@@ -34,7 +34,16 @@ function DetailView({ detailedPost }) {
       </article>
     );
   } else {
-    return <div className="loading">Loading</div>;
+    return (
+      <article className="DetailView">
+        <h1 className="not-found">Could not find a specified post.</h1>
+        <button>
+          <Link className="link" to="/">
+            Go back
+          </Link>
+        </button>
+      </article>
+    );
   }
 }
 
