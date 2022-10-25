@@ -221,6 +221,7 @@ footer a:hover {
 
 .Pagination button:hover {
   background-color: var(--background-dark);
+  cursor: pointer;
 }
 
 .Pagination button:active {
