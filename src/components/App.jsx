@@ -78,26 +78,22 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<PostList posts={currentFilteredPosts} />}
+              element={
+                <>
+                  <PostList posts={currentFilteredPosts} />
+                  <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={filteredPosts.length}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                  />
+                </>
+              }
             />
             <Route path="/posts/:id" element={<DetailPage posts={posts} />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Pagination
-                  postsPerPage={postsPerPage}
-                  totalPosts={filteredPosts.length}
-                  paginate={paginate}
-                  currentPage={currentPage}
-                />
-              }
-            />
-          </Routes>
         </div>
-
         <Footer />
       </div>
     );
