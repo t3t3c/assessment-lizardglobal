@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Redirect, Route, Routes } from 'react-router-dom';
 import CategoryFilter from './CategoryFilter';
 import DetailPage from './DetailPage';
 import Footer from './Footer';
